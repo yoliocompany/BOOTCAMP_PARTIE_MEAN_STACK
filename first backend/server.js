@@ -1,5 +1,10 @@
 const express = require('express');
 
+require('./config/connect');
+
+
+// import models
+const Article = require('./models/article');
 
 const app = express();
 app.use(express.json());
@@ -9,24 +14,49 @@ app.use(express.json());
 
 
 // creation article
-app.post('/ajout', (req, res) => {
-
+app.post('/ajout', (req, res) => {  
+    // 1 read data req
     let data = req.body;
-    console.log(data);
-
-    // .............
-
-    res.send('bien recu !');
-
+    // 2 instance ml model
+    let art = new Article( data );
+    // 3 save f db
+    art.save() //essayed eli tsajel
+        .then(
+            ( savedArticle )=>{
+                res.send(savedArticle);
+            }
+        )
+        .catch(
+            (err)=>{
+                res.send(err)
+            }
+        )
 });
 
 // list article
 
+// find(  ) : [  ]
+// find( { categorie: 'web' } ): [  ]
+
+// findOne() : {}
+// findOne({ _id: 'dqsdqsdqsd' }) : {}
+
+// findById({ _id: 'qsdqsdqsd' }) : {}
+
+
 app.get('/list', (req, res) => {
 
-    // ........................
-
-    res.send('voila la liste des articles');
+    Article.find() // list des articles [  ]
+        .then(
+            ( list )=>{
+                res.send(list);
+            }
+        )
+        .catch(
+            (err)=>{
+                res.send(err)
+            }
+        )
 
 });
 
@@ -69,12 +99,14 @@ app.put('/update/:id', (req, res) => {
 
     // update in db
 
-    
+
     // send response
     res.send('updated !!!')
 
 
 })
+
+
 
 
 
@@ -84,3 +116,22 @@ app.listen(
         console.log('server workssss :)');
     }
 );
+
+
+
+
+// homework
+
+// 1 get by Id
+
+// 2 create new model : product
+/**
+ * title: String
+ * description : String
+ * price: Number
+ * image: String
+ * 
+ * create apis:
+ * 
+ * ajout / allproduct / byid / delete / update
+ */
