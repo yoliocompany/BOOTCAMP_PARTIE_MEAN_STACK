@@ -1,20 +1,39 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-first',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './first.component.html',
-  styleUrl: './first.component.css'
+  styleUrl: './first.component.css',
 })
 export class FirstComponent {
 
-  article = {
-    image: 'https://miro.medium.com/v2/resize:fit:828/format:webp/1*HdwNFQOaTJBu26gEddg8gw.png',
-    title: 'Some big things are happening next week on November 6th 🎉',
-    description: 'Weve been hard at work on some very special updates to Angular. You dont want to miss what we have planned.'
+  hero = {
+    image: 'assets/card-img.png',
+    name: 'Luffy',
+    power: 22,
+    description: 'QSLKDJQSD QSDLQKSJDQS DQSLKDJ AZEKLJKLAZJEA LKQSDJLKQD'
   }
 
+
+  data = {
+    image: '',
+    name: '',
+    power: 0,
+    description: ''
+  }
+
+  change(){
+    this.hero = this.data;
+    this.data = {
+      image: '',
+      name: '',
+      power: 0,
+      description: ''
+    }
+  }
 
 
 }
