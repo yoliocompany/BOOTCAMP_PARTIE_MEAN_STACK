@@ -1,10 +1,16 @@
-.article{
-    width: 400px;
-    border: 2px solid gray;
-    padding: 12px;
-    border-radius: 24px;
+img {
+  width: 200px;
 }
 
-img{
-    width: 100%;
+
+.card{
+    border: 2px solid black;
+}
+
+.red{
+    background-color: rgb(255, 0, 183);
+}
+
+.blue{
+    background-color: rgb(91, 91, 249);
 }

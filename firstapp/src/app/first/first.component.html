@@ -1,58 +1,11 @@
 
 
-<div class="text-center">
-    <img src="assets/logo.svg" alt="">
+
+<!-- <h1  *ngFor=" let color of colors " > {{ color }}  </h1> -->
+
+<div *ngFor="let item of articles"  [ngClass]=" { 'red': item.likes < 100 , 'blue': item.likes > 100} "  >
+    <h1 [ngStyle]=" { 'color': item.color } " >{{ item.title }}</h1>
+    <p  [ngStyle]=" { 'color': item.color } " > {{ item.description }} </p>
+    <h3 [ngStyle]=" { 'color': item.color } " > {{ item.likes }} </h3>
+    <input type="color" [(ngModel)]="item.color" >
 </div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 col-12">
-            <div class="card">
-                <div class="card-body">
-                        <img [src]="hero.image" class="card-img-top" alt="">
-                    <div class="card-decription">
-                        <div class="card-title p-2">
-                            <p> {{ hero.name }} </p>
-                            <p> {{ hero.power }} </p>
-                        </div>
-                        <div class="card-detail">
-                            <p> {{ hero.description }} </p>
-                            <a href="#">Luffyimage.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-6 col-12">
-            <div class="form">
-                <div class="form-group mt-4">
-                    <label for="">Hero Name</label>
-                    <input [(ngModel)]="data.name" type="text" class="form-control mt-2 p-2">
-                </div>
-
-                <div class="form-group mt-4">
-                    <label for="">Hero power</label>
-                    <input [(ngModel)]="data.power" type="text" class="form-control mt-2 p-2">
-                </div>
-
-                <div class="form-group mt-4">
-                    <label for="">Hero image</label>
-                    <input [(ngModel)]="data.image" type="text" class="form-control mt-2 p-2">
-                </div>
-
-                <div class="form-group mt-4">
-                    <label for="">Hero desc</label>
-                    <input [(ngModel)]="data.description" type="text" class="form-control mt-2 p-2">
-                </div>
-                
-                <div class="text-end mt-4">
-                    <button (click)="change()" >Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
