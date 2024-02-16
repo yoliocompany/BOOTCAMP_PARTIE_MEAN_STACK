@@ -10,38 +10,33 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './first.component.css',
 })
 export class FirstComponent {
-
+  
   articles = [
 
     {
       title: 'QDLKJQSD QSDLKQJDQLKSD',
       description: 'lkqsdjqlkdqs dqsdlkqjds qsdqslkdjqsd',
-      likes: 22,
-      color: 'red'
+      likes: 22
     },
     {
       title: 'LJDQSD LQSKDJQSD LKJQSD QSDLKAZE',
       description: 'lkqsdjqlkdqs dqsdlkqjds qsdqslkdjqsd',
-      likes: 222,
-      color: 'blue'
+      likes: 222
     },
     {
       title: 'AZEOIAZE KZEHALZE SQDLKQSD .?ZENAZLEKJAZE L',
       description: 'lkqsdjqlkdqs dqsdlkqjds qsdqslkdjqsd',
-      likes: 11,
-      color: 'green'
+      likes: 11
     },
     {
       title: 'QDL AEAE AZEA E  AE A ZE  AZE  AZ E AEZ',
       description: 'lkqsdjqlkdqs dqsdlkqjds qsdqslkdjqsd',
-      likes: 99,
-      color: 'yellow'
+      likes: 99
     },
     {
       title: 'QDLK AZE AZE   ZAE AZE AZ E AZE  AZE AZEAZEAZ E AZE ',
       description: 'lkqsdjqlkdqs dqsdlkqjds qsdqslkdjqsd',
-      likes: 544,
-      color: 'orange'
+      likes: 544
     },
 
 

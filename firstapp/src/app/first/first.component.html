@@ -1,11 +1,18 @@
 
 
+@for(art of articles; track art.title){
+   
+    @if(art.likes > 100){
+        <div>
+            <h1> {{ art.title }} </h1>
+            <p> {{ art.description }} </p>
+            <button>delete</button>
+        </div>
+    }
 
-<!-- <h1  *ngFor=" let color of colors " > {{ color }}  </h1> -->
+}@empty {
+    <h1> no data ... </h1>
+}
 
-<div *ngFor="let item of articles"  [ngClass]=" { 'red': item.likes < 100 , 'blue': item.likes > 100} "  >
-    <h1 [ngStyle]=" { 'color': item.color } " >{{ item.title }}</h1>
-    <p  [ngStyle]=" { 'color': item.color } " > {{ item.description }} </p>
-    <h3 [ngStyle]=" { 'color': item.color } " > {{ item.likes }} </h3>
-    <input type="color" [(ngModel)]="item.color" >
-</div>
+
+
