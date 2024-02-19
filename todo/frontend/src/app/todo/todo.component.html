@@ -2,17 +2,8 @@
 
     <h1 class="display-4 text-dark  text-center">TODO LIST</h1>
 
-    <div class="input-group mt-5">
-        <input [(ngModel)]="todo.text" type="text" class="form-control">
-        <button class="btn btn-dark" (click)="add()" >Create</button>
-    </div>
+    <app-create></app-create>
 
-    <ul class="mt-5">
-       
-        @for( todo of todos; track todo.text ){
-            <li> {{ todo.text }} </li>
-        }
-        
-    </ul>
+    <app-list></app-list>
 
 </div>
