@@ -1,10 +1,9 @@
 <ul class="mt-5">
 
-        <li> KLQJDLKQSD QSDLKQJSDQLKSD </li>
-        <li> KLQJDLKQSD QSDLKQJSDQLKSD </li>
-        <li> KLQJDLKQSD QSDLKQJSDQLKSD </li>
-        <li> KLQJDLKQSD QSDLKQJSDQLKSD </li>    
-
+        @for(todo  of todos ; track todo._id){
+                <li> {{ todo.text }} : {{ todo.priority }} </li>
+        }
+     
 </ul>
 
 

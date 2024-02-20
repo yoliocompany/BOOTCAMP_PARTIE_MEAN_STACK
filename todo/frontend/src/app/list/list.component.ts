@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-list',
@@ -9,5 +10,22 @@ import { Component } from '@angular/core';
 })
 export class ListComponent {
 
+  todos : any = [];
+
+  constructor( private _data: DataService ){}
+
+  ngOnInit(): void {
+ 
+    this._data.list().subscribe({
+      next: (res)=>{
+        this.todos = res;
+        console.log(this.todos);
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    })
+  
+  }
 
 }
