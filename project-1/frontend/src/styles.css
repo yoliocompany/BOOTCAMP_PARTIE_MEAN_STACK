@@ -1,0 +1,209 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+
+body{
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(rgba(252,252,255,1), rgba(225,224,255,1));
+
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.section-title{
+    font-size: 35px;
+    font-weight: 700;
+    color: #00024F; 
+    background-image: -webkit-linear-gradient(315deg, #00024F 9%, #504BFF 60%, #FF1761 100%); 
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;  
+}
+
+.card-title{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #00024F; 
+}
+
+
+@media (max-width: 992px) { 
+    
+    .header{
+        margin:20px 0;
+        padding: 0;
+    }
+}
+
+
+.header{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+    max-width: 100%;
+    border-radius: 20px;
+    box-shadow: 10px 10px 22px -3px rgba(0,0,0,.09);
+
+    color: #00024F;
+}
+
+.header__right-side{
+ display: flex;
+}
+
+.header__left-side p {
+    cursor: pointer;
+}
+.header__left-side .logo{
+    font-weight: 700;
+    font-size: 20px;
+
+}
+
+.header__right-side .active{
+    position: relative;
+    cursor: pointer;
+}
+
+.header__right-side .active::after{
+    content:'';
+    width: 105%;
+    height:4.5px;
+    position: absolute;
+    bottom: 3px; 
+    left: 0;
+    border-radius: 10px;
+    background-color: #4E25FF;
+    transition: all ease-in-out 0.2s;
+}
+
+.header__left-side p,
+.header__right-side p{
+    margin: 20px;
+}
+
+.waves-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.btn-success{
+    background-color: #00AC4F;
+    border: none;
+}
+
+.btn-danger{
+    background-color: #FF6363;
+    border: none;
+}
+
+
+
+.card-list{
+    background-color: #FFFFFF;
+    border-radius: 32px;
+    border: none;
+    box-shadow: 8px 10px 20px -5px rgba(0,0,0,0.1);
+}
+
+.card-desc-text{
+    color: #504BFF;
+}
+
+
+
+.form-control{
+    background: rgba(191, 191, 191, 0.046);
+    height: 50px;
+    border: 3px solid #fff;
+}
+
+.form-control::placeholder{
+    font-size: 13px;
+    font-weight: bold;
+    color: #C0C0C0;
+}
+
+.form button{
+    background-image: linear-gradient(#504BFF,#8481FF);
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.form-col{
+    padding-right: 50px;
+}
+
+input[type="file"] {
+    display: none;
+}
+label{
+    display: block;
+}
+.btn-uploadfile {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: rgba(82, 77, 255,0.2);
+    color:#504BFF;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-control.file{
+    padding: 10px 1px;
+}
+
+.error{
+    color: #FF6363;
+    font-size: 12px;
+    padding: 5px;
+}
+
+/*404 page*/
+
+.img-notfound{
+    max-width: 100%;
+}
+
+.notfound{
+    font-size: 35px;
+    font-weight: bold;
+    color: #00024F;
+}
+
+.message{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.social-media span{
+    border-radius: 100%;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    padding: 2px 0;
+    margin: 0 10px;
+    text-align: center;
+
+    background-color: rgba(10, 11, 101,13%);
+}
