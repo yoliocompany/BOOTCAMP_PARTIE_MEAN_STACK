@@ -2,126 +2,32 @@
 
   <div class="container my-5">
       <div class="row">
-          <div class="col-lg-4 col-md-6 col-12">
-              <div class="card card-list my-3">
-                  <div class="card-body">
-                      <img src="assets/hero-img.png" class="card-img-top" alt="">
-                      <div class="card-title my-2">
-                          Monkey D Luffy
-                      </div>
-                      <div class="card-body d-flex justify-content-between">
-                          <p class="card-desc-text">178</p>
-                          <div>
-                              <button class="btn btn-success  rounded-3 waves-effect  p-icon me-1">
-                                  <img style="width: 20px;" src="assets/edit-icon.svg" alt="">
-                              </button>
+          
+        @for(item of heros; track item._id){
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="card card-list my-3">
+                    <div class="card-body">
+                        <img [src]="item.image" class="card-img-top" alt="">
+                        <div class="card-title my-2">
+                            {{ item.name }}
+                        </div>
+                        <div class="card-body d-flex justify-content-between">
+                            <p class="card-desc-text"> {{ item.power }} </p>
+                            <div>
+                                <button [routerLink]="['/update', item._id]" class="btn btn-success  rounded-3 waves-effect  p-icon me-1">
+                                    <img style="width: 20px;" src="assets/edit-icon.svg" alt="">
+                                </button>
+  
+  
+                                <button (click)="deleteHero(item._id)" type="button" class="btn btn-danger rounded-3 waves-effect p-icon mx-2">
+                                    <img src="assets/delete-icon.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
 
-
-                              <button type="button" class="btn btn-danger rounded-3 waves-effect p-icon mx-2">
-                                  <img src="assets/delete-icon.svg" alt="">
-                              </button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-12">
-              <div class="card card-list my-3">
-                  <div class="card-body">
-                      <img src="assets/hero-img.png" class="card-img-top" alt="">
-                      <div class="card-title my-2">
-                          Monkey D Luffy
-                      </div>
-                      <div class="card-body d-flex justify-content-between">
-                          <p class="card-desc-text">178</p>
-                          <div>
-                              <button class="btn btn-success  rounded-3 waves-effect  p-icon me-1">
-                                  <img style="width: 20px;" src="assets/edit-icon.svg" alt="">
-                              </button>
-
-
-                              <button type="button" class="btn btn-danger rounded-3 waves-effect p-icon mx-2">
-                                  <img src="assets/delete-icon.svg" alt="">
-                              </button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-
-          <div class="col-lg-4 col-md-6 col-12">
-              <div class="card card-list my-3">
-                  <div class="card-body">
-                      <img src="assets/hero-img.png" class="card-img-top" alt="">
-                      <div class="card-title my-2">
-                          Monkey D Luffy
-                      </div>
-                      <div class="card-body d-flex justify-content-between">
-                          <p class="card-desc-text">178</p>
-                          <div>
-                              <button class="btn btn-success  rounded-3 waves-effect  p-icon me-1">
-                                  <img style="width: 20px;" src="assets/edit-icon.svg" alt="">
-                              </button>
-
-
-                              <button type="button" class="btn btn-danger rounded-3 waves-effect p-icon mx-2">
-                                  <img src="assets/delete-icon.svg" alt="">
-                              </button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-
-          <div class="col-lg-4 col-md-6 col-12">
-              <div class="card card-list my-3">
-                  <div class="card-body">
-                      <img src="assets/hero-img.png" class="card-img-top" alt="">
-                      <div class="card-title my-2">
-                          Monkey D Luffy
-                      </div>
-                      <div class="card-body d-flex justify-content-between">
-                          <p class="card-desc-text">178</p>
-                          <div>
-                              <button class="btn btn-success  rounded-3 waves-effect  p-icon me-1">
-                                  <img style="width: 20px;" src="assets/edit-icon.svg" alt="">
-                              </button>
-
-
-                              <button type="button" class="btn btn-danger rounded-3 waves-effect p-icon mx-2">
-                                  <img src="assets/delete-icon.svg" alt="">
-                              </button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-12">
-              <div class="card card-list my-3">
-                  <div class="card-body">
-                      <img src="assets/hero-img.png" class="card-img-top" alt="">
-                      <div class="card-title my-2">
-                          Monkey D Luffy
-                      </div>
-                      <div class="card-body d-flex justify-content-between">
-                          <p class="card-desc-text">178</p>
-                          <div>
-                              <button class="btn btn-success  rounded-3 waves-effect  p-icon me-1">
-                                  <img style="width: 20px;" src="assets/edit-icon.svg" alt="">
-                              </button>
-
-
-                              <button type="button" class="btn btn-danger rounded-3 waves-effect p-icon mx-2">
-                                  <img src="assets/delete-icon.svg" alt="">
-                              </button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
       </div>
   </div>

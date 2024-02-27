@@ -3,15 +3,15 @@
 <div class="container my-5">
     <div class="form row">
         <div class="form-group mt-4 col-3">
-            <input type="text" class="form-control mt-2 p-2 px-3" placeholder="name">
+            <input [(ngModel)]="hero.name"  type="text" class="form-control mt-2 p-2 px-3" placeholder="name">
         </div>
 
         <div class="form-group mt-4 col-3">
-            <input type="text" class="form-control mt-2 p-2 px-3" placeholder="power">
+            <input [(ngModel)]="hero.power" type="text" class="form-control mt-2 p-2 px-3" placeholder="power">
         </div>
        
         <div class="form-group mt-4 col-3">
-            <input type="text" class="form-control mt-2 p-2 px-3" placeholder="image">
+            <input [(ngModel)]="hero.image" type="text" class="form-control mt-2 p-2 px-3" placeholder="image">
         </div>
         
         <!-- <div class="form-group my-4 col-3">
@@ -24,7 +24,7 @@
         </div> -->
 
         <div class="text-center my-4 py-2 px-0 col-3">
-            <button>Save</button>
+            <button (click)="ajout()" >Save</button>
         </div>
 
 

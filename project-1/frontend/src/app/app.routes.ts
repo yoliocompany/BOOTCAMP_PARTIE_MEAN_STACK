@@ -12,7 +12,7 @@ export const routes: Routes = [
 
     { path: 'ajout', component: AjoutComponent },
 
-    { path: 'update', component: UpdateComponent },
+    { path: 'update/:id', component: UpdateComponent },
 
     { path: '**', component: NotfoundComponent }
 
