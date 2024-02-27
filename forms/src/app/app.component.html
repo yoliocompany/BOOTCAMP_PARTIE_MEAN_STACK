@@ -1,0 +1,68 @@
+<div class="card w-50 p-4 mx-auto">
+
+  <h1 class="display-4 text-center">Contact Us</h1>
+
+  <form [formGroup]="contactForm" (ngSubmit)="send()">
+
+    <input formControlName="name" type="text" placeholder="name"
+      [ngClass]="{ 'form-control mt-2': true , 'error': contactForm.controls['name'].invalid && contactForm.controls['name'].touched}">
+
+    @if( contactForm.controls['name'].invalid && contactForm.controls['name'].touched ){
+    <p class="text-danger"> invalid name </p>
+    }
+
+    <input formControlName="email" type="email" placeholder="email"
+      [ngClass]="{ 'form-control mt-2': true , 'error': contactForm.controls['email'].invalid && contactForm.controls['email'].touched}">
+
+    @if(contactForm.controls['email'].invalid && contactForm.controls['email'].touched){
+    <p class="text-danger">invalid email</p>
+    }
+
+    <input formControlName="subject" type="text" placeholder="subject"
+      [ngClass]="{ 'form-control mt-2': true , 'error': contactForm.controls['subject'].invalid && contactForm.controls['subject'].touched}">
+
+    @if(contactForm.controls['subject'].invalid && contactForm.controls['subject'].touched){
+    <p class="text-danger">invalid subject</p>
+    }
+
+    <textarea formControlName="message" cols="30" rows="5" placeholder="message"
+      [ngClass]="{ 'form-control mt-2': true , 'error': contactForm.controls['message'].invalid && contactForm.controls['message'].touched}"></textarea>
+
+    @if(contactForm.controls['message'].invalid && contactForm.controls['message'].touched){
+    <p class="text-danger">invalid message</p>
+    }
+
+    <button [disabled]=" contactForm.invalid " class="btn btn-primary form-control mt-2">Send</button>
+
+  </form>
+
+</div>
+
+
+
+<!-- 
+
+
+  voir seance 7
+
+  model 
+    user
+      name
+      lastname
+      email
+      password
+
+      create account, login
+
+    contact
+      name
+      lastname
+      email
+      tel
+      address
+      image
+      idUser
+      
+      create (upload file) , getContactsByIdUser, delete, byid, update
+
+ -->
