@@ -26,13 +26,16 @@ const signUp = (req, res) => {
 
 const signIn = (req, res) => {
     let { email, password } = req.body;
+    
     User.findOne({email: email})
         .then(
             (user)=>{
+                
                 if(!user){
                     res.send({ message: 'email or password invalid' })
                 }else{
                     let valid = bcrypt.compareSync(password, user.password);
+                    console.log(valid);
                     if(!valid){
                         res.send({ message: 'email or password invalid' })
                     }else{
@@ -43,7 +46,7 @@ const signIn = (req, res) => {
                             email: user.email
                         }
                         let token = jwt.sign( payload, '123456789' );
-                        res.send(token);
+                        res.send({ myToken: token });
                     }
                 }
             }

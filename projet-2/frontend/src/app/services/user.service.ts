@@ -17,4 +17,35 @@ export class UserService {
     return this.http.post( this.url + 'signup', data );
   }
 
+  isLoggedIn(){
+
+    let token = localStorage.getItem('token');
+    if(token){
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+
+  getUserDataFromToken(){
+
+    let token = localStorage.getItem('token');
+    // azklejazlejalkzejlkazej.ajelkajelkajzlkeajelkajzlkeajz.akzljeaklzjelkajze
+    if(token){
+
+      let codedData = token.split('.')[1];
+    
+      let decodedData = window.atob(codedData);
+  
+      let data = JSON.parse(decodedData);
+ 
+      return data;
+
+      // return JSON.parse( window.atob( token.split('.')[1] ) )
+      
+    }
+
+  }
+
 }

@@ -6,11 +6,11 @@
                 <p class="active py-1" routerLink="/home/ajout" >Add</p>
         </div>
         <div class="header__right-side">
-            <p class="btn">Log out</p>
+            <p class="btn" (click)="logout()" >Log out</p>
         </div>
     </div>
 
-    <h5 class="card-title text-center pb-2 pt-3 my-5">Welcome Amine Jbali !</h5>
+    <h5 class="card-title text-center pb-2 pt-3 my-5">Welcome {{ user.name + ' ' + user.lastname }} !</h5>
 
     
     <router-outlet></router-outlet>
