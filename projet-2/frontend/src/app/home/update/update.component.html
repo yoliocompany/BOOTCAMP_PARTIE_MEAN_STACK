@@ -9,38 +9,42 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 form-col">
-                <div class="form">
+                <form class="form" [formGroup]="contactForm" (ngSubmit)="send()"  >
                     <div class="form-group mt-4">
-                        <input type="text" class="form-control mt-2 p-2 px-3" placeholder="First name">
+                        <input formControlName="name" type="text" [ngClass]="{'form-control mt-2 p-2 px-3': true, 'error': contactForm.controls['name'].invalid && contactForm.controls['name'].touched }" placeholder="First name">
                     </div>
     
                     <div class="form-group mt-4">
-                        <input type="text" class="form-control mt-2 p-2 px-3" placeholder="Last name">
+                        <input formControlName="lastname" type="text" [ngClass]="{'form-control mt-2 p-2 px-3': true, 'error': contactForm.controls['lastname'].invalid && contactForm.controls['lastname'].touched }"  placeholder="Last name">
                     </div>
                     
                     <div class="form-group mt-4">
-                        <input type="text" class="form-control mt-2 p-2 px-3" placeholder="E-mail">
+                        <input formControlName="address" type="text" [ngClass]="{'form-control mt-2 p-2 px-3': true, 'error': contactForm.controls['address'].invalid && contactForm.controls['address'].touched }"  placeholder="Address">
                     </div>
-    
-                   <div class="form-group mt-4">
-                        <input type="text" class="form-control mt-2 p-2 px-3" placeholder="Password">
-                    </div> 
+                   
+                    <div class="form-group mt-4">
+                        <input formControlName="tel" type="text" [ngClass]="{'form-control mt-2 p-2 px-3': true, 'error': contactForm.controls['tel'].invalid && contactForm.controls['tel'].touched }"  placeholder="Tel">
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <input formControlName="email" type="text" [ngClass]="{'form-control mt-2 p-2 px-3': true, 'error': contactForm.controls['email'].invalid && contactForm.controls['email'].touched }"  placeholder="E-mail">
+                    </div>
                     
-                    <div class="form-group my-4">
+                    <div  [ngClass]="{'form-group my-4': true}" >
                         <label for="fileInput" class="d-block my-2">
                             <p class="form-control file mt-2">
                                 <span  class="btn-uploadfile"><img src="assets/upload.svg" alt=""></span>
                             </p>
                         </label>
-                        <input type="file" id="fileInput" name="fileInput" dir="rtl"  placeholder="Title">
+                        <input (change)="selectImage($event)"  type="file" id="fileInput" name="fileInput" dir="rtl"  placeholder="Title">
                     </div>
 
                     <div class="text-center mt-4 d-block">
-                        <button>Save</button>
+                        <button type="submit" [disabled]="contactForm.invalid"  >Save</button>
                     </div>
     
 
-                </div>
+                </form>
             </div>
         </div>
     </div>
