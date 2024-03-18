@@ -19,7 +19,8 @@ const User = mongoose.model('User', {
         type: String
     },
     tags: {
-        type: Array
+        type: Array,
+        default: []
     },
     date: {
         type: Date
