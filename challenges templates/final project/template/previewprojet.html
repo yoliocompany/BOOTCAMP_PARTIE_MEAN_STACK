@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Frontend</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body data-sidebar="dark">
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a href="index.html" class="logo logo-dark">
+                            <span class="logo-sm">
+                                <img src="assets/bigLogo.png" alt="" height="22">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="assets/bigLogo.png" alt="" height="17">
+                            </span>
+                        </a>
+
+                        <a href="index.html" class="logo logo-light">
+                            <span class="logo-sm">
+                                <img src="assets/bigLogo.png" alt="" height="22">
+                            </span>
+                            <span class="logo-lg text-light">
+                                <img src="assets/bigLogo.png" alt="" height="19">
+                                YOLIO CAREER
+                            </span>
+                        </a>
+                    </div>
+
+                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect"
+                        id="vertical-menu-btn">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+
+                </div>
+
+                <div class="d-flex">
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle header-profile-user" src="assets/images/profile-img.png"
+                                alt="Header Avatar">
+                            <span class="d-none d-xl-inline-block ms-1" key="t-henry"> Admin Admin </span>
+                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                            <a class="dropdown-item" href="contacts-profile.html"><i
+                                    class="bx bx-user font-size-16 align-middle me-1"></i> <span
+                                    key="t-profile">Profile</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger"><i
+                                    class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
+                                    key="t-logout">Logout</span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div class="vertical-menu">
+
+            <div data-simplebar class="h-100">
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Admin Menu Start -->
+
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title" key="t-menu">Menu</li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="waves-effect">
+                                <i class="bx bx-home-circle"></i>
+                                <span key="t-dashboards">Dashboards</span>
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a class="has-arrow waves-effect">
+                                <i class="bx bx-layout"></i>
+                                <span key="t-layouts">Clients management</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-briefcase-alt-2"></i>
+                                <span key="t-projects">Projects</span>
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bxs-user-detail"></i>
+                                <span key="t-contacts">Employers</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0 font-size-18">Project Overview</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-4">
+                                            <img src="assets/images/clients/1.png" alt=""
+                                                class="avatar-sm rounded-circle">
+                                        </div>
+
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <h5 class="text-truncate font-size-15"> SQDQSDKLQSDQDSKLJ KJAZE AZEKJAZHE
+                                            </h5>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="font-size-15 mt-4">Project Details :</h5>
+
+                                    <p class="text-muted"> qksldjqsd qsdlqksdjqs dlkajezaz ealkejaze lkqsdjqsd
+                                        lkazjeazenazelkjaze azelkjazlkejaze azlekjalkzjeaze
+                                        azlkejalkzjeazenqsdljqlsdjqsnlazkej lrkjazelkajz rzelkrjazer </p>
+
+
+                                    <div class="row task-dates">
+                                        <div class="col-sm-4 col-6">
+                                            <div class="mt-4">
+                                                <h5 class="font-size-14"><i class="bx bx-money me-1 text-primary"></i>
+                                                    Budget </h5>
+                                                <p class="text-muted mb-0"> 332 </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 col-6">
+                                            <div class="mt-4">
+                                                <h5 class="font-size-14"><i
+                                                        class="bx bx-calendar me-1 text-primary"></i> Start Date</h5>
+                                                <p class="text-muted mb-0"> 12/33/2232 </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4 col-6">
+                                            <div class="mt-4">
+                                                <h5 class="font-size-14"><i
+                                                        class="bx bx-calendar-check me-1 text-primary"></i> Due Date
+                                                </h5>
+                                                <p class="text-muted mb-0"> 23/22/2211 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Team Members</h4>
+
+                                    <div class="table-responsive">
+                                        <table class="table align-middle table-nowrap">
+                                            <tbody>
+
+
+                                                <tr>
+                                                    <td style="width: 50px;">
+                                                        <img src="assets/images/users/avatar-1.jpg"
+                                                            class="rounded-circle avatar-xs" alt="">
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-size-14 m-0"><a href="javascript: void(0);"
+                                                                class="text-dark"> SQDQSD QSDQSD QSD </a></h5>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+
+                                                            <a href="javascript: void(0);"
+                                                                class="badge bg-primary bg-soft text-primary font-size-11 me-1">UI/UX</a>
+                                                            <a href="javascript: void(0);"
+                                                                class="badge bg-primary bg-soft text-primary font-size-11 me-1">design</a>
+
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Attached Files</h4>
+                                    <div class="table-responsive">
+                                        <table class="table table-nowrap align-middle table-hover mb-0">
+                                            <tbody>
+
+                                                <tr>
+                                                    <td style="width: 45px;">
+                                                        <div class="avatar-sm">
+                                                            <span
+                                                                class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-24">
+                                                                <i class="bx bxs-file-doc"></i>
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="font-size-14 mb-1"><a href="javascript: void(0);"
+                                                                class="text-dark"> attachment file name </a></h5>
+                                                        <small>Size : 3.25 MB</small>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <a target="_blank" class="text-dark"><i
+                                                                    class="bx bx-download h3 m-0"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="text-center">
+
+                                        <img src="assets/images/clients/3.png" alt=""
+                                            class="img-thumbnail w-25 rounded-circle">
+
+                                        <h5 class="font-size-15 text-truncate mt-3"> SQDQSD QSDQSDQS AZE </h5>
+
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-nowrap mb-0">
+                                            <tbody>
+
+                                                <tr>
+                                                    <th scope="row">Mobile :</th>
+                                                    <td>(216) 2233322 </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">E-mail :</th>
+                                                    <td> azeaze@aze.dsq </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Location :</th>
+                                                    <td> aze azeaze </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="container">
+
+                            <h1 class="text-center mt-4"> KANBAN PROJECT BOARD </h1>
+                          
+                            <div class="row">
+                              <div class="col-3">
+                                <input  type="text" placeholder="todo list" class="form-control">
+                              </div>
+                              <div class="col-3">
+                                <input  type="date" placeholder="todo list" class="form-control">
+                              </div>
+                              <div class="col-2">
+                                <input  type="text" placeholder="task budget" class="form-control">
+                              </div>
+                              <div class="col-2">
+                                <select  class="form-select">
+                                  <option value="backlog">Backlog</option>
+                                  <option value="inprogress">In Progress</option>
+                                  <option value="done">Done</option>
+                                  <option value="inhold">In Hold</option>
+                                </select>
+                              </div>
+                              <div class="col-2">
+                                <button class="btn btn-primary form-control" >Create</button>
+                          
+                              </div>
+                          
+                            </div>
+                        
+                          </div>
+                          
+                        
+                        
+                         <div class="container mt-4">
+                            <div class="row " >
+                                <div class="col-lg-3">
+                                    <div class="card">
+                                        <div class="card-body" >
+                                   
+                            
+                                            <h4 class="card-title mb-4">Backlog</h4>
+                                            <div id="task-1">
+                                                <div id="upcoming-task" class="pb-1 task-list">
+                                                   
+                                                        <div class="card task-box" id="uptask-1">
+                                                            <div class="card-body">
+                                                           
+                                                                <div class="float-end ms-2">
+                                                                    <span class="badge rounded-pill badge-soft-secondary font-size-12" id="task-status"> todo </span>
+                                                                </div>
+                                                                <div>
+                                                                    <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark" id="task-name"> SDQSDQSD SQDQS QSD QSD </a></h5>
+                                                                    <p class="text-muted mb-4">22/22/1112</p>
+                                                                </div>
+                                                             
+                                                                <div class="text-end">
+                                                                    <h5 class="font-size-15 mb-1" id="task-budget">$ 23 </h5>
+                                                                    <p class="mb-0 text-muted">Budget</p>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="card">
+                                        <div class="card-body" >
+                                   
+                            
+                                            <h4 class="card-title mb-4">In progress</h4>
+                                            <div id="task-1">
+                                                <div id="upcoming-task" class="pb-1 task-list">
+                                                    <div class="card task-box" id="uptask-1">
+                                                        <div class="card-body">
+                                                       
+                                                            <div class="float-end ms-2">
+                                                                <span class="badge rounded-pill badge-soft-secondary font-size-12" id="task-status"> todo </span>
+                                                            </div>
+                                                            <div>
+                                                                <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark" id="task-name"> SDQSDQSD SQDQS QSD QSD </a></h5>
+                                                                <p class="text-muted mb-4">22/22/1112</p>
+                                                            </div>
+                                                         
+                                                            <div class="text-end">
+                                                                <h5 class="font-size-15 mb-1" id="task-budget">$ 23 </h5>
+                                                                <p class="mb-0 text-muted">Budget</p>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="card" >
+                                        <div class="card-body" >
+                                   
+                            
+                                            <h4 class="card-title mb-4">Completed</h4>
+                                            <div id="task-1">
+                                                <div id="upcoming-task" class="pb-1 task-list">
+                                                    <div class="card task-box" id="uptask-1">
+                                                        <div class="card-body">
+                                                       
+                                                            <div class="float-end ms-2">
+                                                                <span class="badge rounded-pill badge-soft-secondary font-size-12" id="task-status"> todo </span>
+                                                            </div>
+                                                            <div>
+                                                                <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark" id="task-name"> SDQSDQSD SQDQS QSD QSD </a></h5>
+                                                                <p class="text-muted mb-4">22/22/1112</p>
+                                                            </div>
+                                                         
+                                                            <div class="text-end">
+                                                                <h5 class="font-size-15 mb-1" id="task-budget">$ 23 </h5>
+                                                                <p class="mb-0 text-muted">Budget</p>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="card" >
+                                        <div class="card-body" >
+                                   
+                            
+                                            <h4 class="card-title mb-4">In hold</h4>
+                                            <div id="task-1">
+                                                <div id="upcoming-task" class="pb-1 task-list">
+                                                    <div class="card task-box" id="uptask-1">
+                                                        <div class="card-body">
+                                                       
+                                                            <div class="float-end ms-2">
+                                                                <span class="badge rounded-pill badge-soft-secondary font-size-12" id="task-status"> todo </span>
+                                                            </div>
+                                                            <div>
+                                                                <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark" id="task-name"> SDQSDQSD SQDQS QSD QSD </a></h5>
+                                                                <p class="text-muted mb-4">22/22/1112</p>
+                                                            </div>
+                                                         
+                                                            <div class="text-end">
+                                                                <h5 class="font-size-15 mb-1" id="task-budget">$ 23 </h5>
+                                                                <p class="mb-0 text-muted">Budget</p>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                             
+                            </div>
+                         </div>
+                          
+                        
+                    </div>
+                    <!-- end row -->
+
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+
+
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            © GRH.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by YOLIO CAREER
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+
+    <!-- apexcharts -->
+    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+
+    <!-- dashboard init -->
+    <script src="assets/js/pages/dashboard.init.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
