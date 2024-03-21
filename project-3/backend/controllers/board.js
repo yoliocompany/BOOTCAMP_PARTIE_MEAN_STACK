@@ -1,21 +1,22 @@
 const Board = require('../models/board');
 
 
-const create = (req, res)=>{
+const createBoard = (id)=>{
 
-    let data = req.body;
-    let board = new Board(data);
+ 
+    let board = new Board();
+    board.project = id;
     board.date = new Date();
 
     board.save()
         .then(
             (result)=>{
-                res.send(result);
+               console.log('created');
             }
         )
         .catch(
             (err)=>{
-                res.send(err);
+               console.log(err);
             }
         )
 
@@ -73,4 +74,4 @@ const update = (req, res)=>{
 }
 
 
-module.exports = { create, byId, deleteBoard, update };
+module.exports = { createBoard, byId, deleteBoard, update };

@@ -26,7 +26,11 @@ router.post('/signin', signIn);
 router.get('/list', list);
 router.get('/byid/:id', byId );
 router.delete('/delete/:id', deleteUser );
-router.put('/update/:id', update );
+
+router.put('/update/:id', upload.single('image') , (req, res)=>{
+    update(req, res, fileName);
+    fileName= '';
+} );
 
 
 module.exports = router;

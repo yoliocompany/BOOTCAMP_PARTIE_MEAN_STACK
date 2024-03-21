@@ -61,11 +61,36 @@ const createUserAccount = async (req, res, fileName) => {
 
 }
 
-const signIn = (req, res) => {
+const signIn = async (req, res) => {
 
     try {
 
+        const { email, password } = req.body;
 
+        const user = await User.findOne({ email: email });
+        if(!user){
+           return res.send('email or password invalid');
+        }   
+
+        const valid = bcrypt.compareSync( password, user.password );
+
+        if(!valid){
+            return res.send('email or password invalid');
+        }
+
+        let payload = {
+            _id: user._id,
+            fullname: user.fullname,
+            email: user.email,
+            tel: user.tel,
+            image: user.image,
+            role: user.role,
+            tags: user.tags,
+            date: user.date
+        }
+
+        let token = jwt.sign( payload, process.env.SECRET_KEY );
+        res.send({ myToken: token });
 
     } catch (error) {
         res.send(error)
@@ -106,17 +131,32 @@ const deleteUser = async (req, res) => {
         
         let deletedUser = await User.findByIdAndDelete({ _id: req.params.id });
         res.send(deletedUser);
-        
+
     } catch (error) {
         res.send(error)
     }
 
 }
 
-const update = (req, res) => {
+const update = async (req, res, fileName) => {
 
     try {
         
+        let id = req.params.id;
+        let data = req.body;
+        data.tags = JSON.parse(data.tags);
+
+        if(fileName.length > 0){
+            data.image = fileName;
+        }
+
+        if(data.password){
+            data.password = bcrypt.hashSync(data.password, 10);
+        }
+
+        let updatedUser = await User.findByIdAndUpdate({_id: id}, data);
+        
+        res.send(updatedUser);
 
 
     } catch (error) {

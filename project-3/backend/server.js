@@ -20,6 +20,8 @@ app.use('/client', clientRoute);
 app.use('/user', userRoute);
 app.use('/project', projectRoute);
 
+app.use('/files', express.static('./uploads'));
+
 app.listen(3000, ()=>{
     console.log('server work');
     createAdminAccount();
