@@ -1,0 +1,63 @@
+
+
+<app-breadcrumb [url]="'/dashboard/clients/ajout'" [title]="'Clients'" ></app-breadcrumb>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table align-middle table-nowrap table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col" style="width: 70px;">#</th>
+                                <th scope="col">Fullname</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Tel</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @for(client of clients; track client._id){
+                            <tr>
+                                <td>
+                                    <div class="avatar-xs">
+                                        <img style="width: 50px;" [src]="'http://127.0.0.1:3000/files/' + client.image" alt="">
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5 class="font-size-14 mb-1"><a class="text-dark"> {{ client.fullname }} </a></h5>
+
+                                </td>
+                                <td> {{ client.email }} </td>
+                                <td> {{ client.tel }} </td>
+                                <td> {{ client.address }} </td>
+
+
+                                <td>
+                                    <ul class="list-inline font-size-20 contact-links mb-0">
+                                        <li class="list-inline-item px-2">
+                                            <a [routerLink]="['/dashboard/clients/update', client._id ]"
+                                                title="Message"><i class="bx bx-pencil"></i></a>
+                                        </li>
+                                        <li (click)="delete(client._id)" class="list-inline-item px-2">
+                                            <a title="Profile"><i class="bx bx-trash"></i></a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
