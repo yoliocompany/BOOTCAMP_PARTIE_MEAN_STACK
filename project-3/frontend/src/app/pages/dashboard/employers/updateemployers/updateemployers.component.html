@@ -13,40 +13,56 @@
         <div class="card">
             <div class="card-body">
 
-                <form >
+                <form [formGroup]="userForm" (ngSubmit)="save()" >
                     <div class="row mb-4">
                         <label for="username" class="col-form-label col-lg-2">user Name</label>
                         <div class="col-lg-10">
-                            <input id="username" name="username" type="text" class="form-control m-2"  placeholder="Enter user Name...">
+                            <input formControlName="fullname" id="username" name="username" type="text" class="form-control m-2"  placeholder="Enter user Name...">
+                            @if(userForm.controls['fullname'].touched && userForm.controls['fullname'].invalid){
+                                <p class="text-danger">invalid name</p>
+                            }
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label for="useremail" class="col-form-label col-lg-2">user email</label>
                         <div class="col-lg-10">
-                            <input id="useremail" name="username" type="text" class="form-control m-2"  placeholder="Enter user email...">
+                            <input formControlName="email" id="useremail" name="username" type="text" class="form-control m-2"  placeholder="Enter user email...">
+                            @if(userForm.controls['email'].touched && userForm.controls['email'].invalid){
+                                <p class="text-danger">invalid email</p>
+                            }
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label for="usertel" class="col-form-label col-lg-2">user Tel</label>
                         <div class="col-lg-10">
-                            <input id="useretel" name="username" type="text" class="form-control m-2"  placeholder="Enter user tel...">
+                            <input formControlName="tel" id="useretel" name="username" type="text" class="form-control m-2"  placeholder="Enter user tel...">
+                            @if(userForm.controls['tel'].touched && userForm.controls['tel'].invalid){
+                                <p class="text-danger">invalid tel</p>
+                            }
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label for="usertel" class="col-form-label col-lg-2">user Password</label>
                         <div class="col-lg-10">
-                            <input id="useretel" name="username" type="password" class="form-control m-2"     placeholder="Enter user pass...">
+                            <input formControlName="password" id="useretel" name="username" type="password" class="form-control m-2"     placeholder="Enter user pass...">
+                            @if(userForm.controls['password'].touched && userForm.controls['password'].invalid){
+                                <p class="text-danger">invalid password</p>
+                            }
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-form-label col-lg-2">user fonction</label>
                         <div class="col-lg-10">
                             <div class="input-group">
-                                <input id="usereaddress" 
+                                <input id="usereaddress" [(ngModel)]="singleTag" [ngModelOptions]="{standalone: true}"
                                     name="username" type="text" class="form-control" placeholder="Enter tag...">
 
-                                <button class="btn btn-primary"  type="button">Add</button>
+                                <button (click)="createTag()" class="btn btn-primary"  type="button">Add</button>
                             </div>
+
+                            @for(tag of tags; track tag; let i = $index){
+                                <button (click)="deleteTag(i)" class="btn btn-outline-dark">{{tag}}</button>
+                            }
                         </div>
 
                     </div>
@@ -58,7 +74,7 @@
                         <div class="col-lg-10 text-center ">
                             <div class="dropzone pt-5">
                                 <div class="fallback">
-                                    <input id="image"  style="display: none;" name="file"
+                                    <input (change)="selectImage($event)" id="image"  style="display: none;" name="file"
                                         type="file" />
                                 </div>
 
@@ -76,7 +92,7 @@
                     </div>
                     <div class="row justify-content-end">
                         <div class="col-lg-10">
-                            <button type="submit" class="btn btn-primary">Create user</button>
+                            <button type="submit" [disabled]="userForm.invalid "  class="btn btn-primary">Create user</button>
                         </div>
                     </div>
 

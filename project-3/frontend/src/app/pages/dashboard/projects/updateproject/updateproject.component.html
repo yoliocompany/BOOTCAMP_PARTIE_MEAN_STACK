@@ -15,49 +15,63 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title mb-4">Create New Project</h4>
-                <form  >
+                <form [formGroup]="projectForm" (ngSubmit)="send()" >
                     <div class="row mb-4">
                         <label for="projectname" class="col-form-label col-lg-2">Project Name</label>
                         <div class="col-lg-10">
-                            <input id="projectname" name="projectname" type="text" class="form-control m-2"  placeholder="Enter Project Name...">
+                            <input formControlName="name" id="projectname" name="projectname" type="text" class="form-control m-2"  placeholder="Enter Project Name...">
+                            @if(projectForm.controls['name'].touched && projectForm.controls['name'].invalid){
+                                <p class="text-danger"> invalid name </p>
+                            }
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label for="projectdesc" class="col-form-label col-lg-2">Project Description</label>
                         <div class="col-lg-10">
-                            <textarea class="form-control m-2"  placeholder="Enter Project Description..."></textarea>
+                            <textarea formControlName="description" class="form-control m-2"  placeholder="Enter Project Description..."></textarea>
+                            @if(projectForm.controls['description'].touched && projectForm.controls['description'].invalid){
+                                <p class="text-danger"> invalid description </p>
+                            }
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label for="projectproject" class="col-form-label col-lg-2">Status</label>
                         <div class="col-lg-10">
-                            <select class="form-control m-2" >
+                            <select formControlName="status" class="form-control m-2" >
                                 <option value="pending">pending</option>
                                 <option value="completed">completed</option>
                                 <option value="delay">delay</option>
                             </select>
+
+                            @if(projectForm.controls['status'].touched && projectForm.controls['status'].invalid){
+                                <p class="text-danger"> invalid status </p>
+                            }
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label for="projectproject" class="col-form-label col-lg-2">Client</label>
                         <div class="col-lg-10">
-                            <select class="form-control m-2" >
+                            <select formControlName="client" class="form-control m-2" >
                               
-                                <option > SDQSDQSD </option>
-                                <option > SDQSDQSD </option>
-                                <option > SDQSDQSD </option>
+                               @for(client of clients; track client._id){
+                                 <option [value]="client._id"> {{ client.fullname }} </option>
+                               }
                                 
                             </select>
+
+                            @if(projectForm.controls['client'].touched && projectForm.controls['client'].invalid){
+                                <p class="text-danger"> invalid client </p>
+                            }
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label for="projectproject" class="col-form-label col-lg-2">Team members</label>
                         <div class="col-lg-10">
                            
-                                 <input type="checkbox" class="checkbox mt-2" > lksqdjsqd qlksdj <br>
-                                 <input type="checkbox" class="checkbox mt-2" > lksqdjsqd qlksdj <br>
-                                 <input type="checkbox" class="checkbox mt-2" > lksqdjsqd qlksdj <br>
-                            
+                            @for(user of users; track user._id){
+                                <input type="checkbox" (change)="selectUser($event)" class="checkbox mt-2" [value]="user._id" [checked]="selectedTeam.includes(user._id)"  > {{ user.fullname }} <br>
+                            }
+                                
                         </div>
                     </div>
 
@@ -67,8 +81,15 @@
                             <div class="input-daterange input-group" id="project-date-inputgroup"
                                 data-provide="datepicker" data-date-format="dd M, yyyy"
                                 data-date-container='#project-date-inputgroup' data-date-autoclose="true">
-                                <input type="text" class="form-control m-2"  placeholder="Start Date" name="start" />
-                                <input type="text" class="form-control m-2"   placeholder="End Date" name="end" />
+                                <input formControlName="startDate" type="text" class="form-control m-2"  placeholder="Start Date" name="start" />
+                                @if(projectForm.controls['startDate'].touched && projectForm.controls['startDate'].invalid){
+                                    <p class="text-danger"> invalid startDate </p>
+                                }
+                                <input formControlName="endDate" type="text" class="form-control m-2"   placeholder="End Date" name="end" />
+
+                                @if(projectForm.controls['endDate'].touched && projectForm.controls['endDate'].invalid){
+                                    <p class="text-danger"> invalid endDate </p>
+                                }
                             </div>
                         </div>
                     </div>
@@ -76,8 +97,12 @@
                     <div class="row mb-4">
                         <label for="projectbudget" class="col-form-label col-lg-2">Budget</label>
                         <div class="col-lg-10">
-                            <input id="projectbudget" name="projectbudget" type="text"
+                            <input formControlName="budget" id="projectbudget" name="projectbudget" type="text"
                                 placeholder="Enter Project Budget..." class="form-control m-2"  >
+
+                            @if(projectForm.controls['budget'].touched && projectForm.controls['budget'].invalid){
+                                <p class="text-danger"> invalid budget </p>
+                            }
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -85,7 +110,7 @@
                         <div class="col-lg-10 text-center ">
                             <div class="dropzone pt-5">
                                 <div class="fallback">
-                                    <input id="image"  multiple style="display: none;"
+                                    <input (change)="selectImage($event)" id="image"  multiple style="display: none;"
                                         name="file" type="file" />
                                 </div>
     
@@ -103,7 +128,7 @@
                     </div>
                     <div class="row justify-content-end">
                         <div class="col-lg-10">
-                            <button type="submit" class="btn btn-primary">Create Project</button>
+                            <button [disabled]="projectForm.invalid" type="submit" class="btn btn-primary">Create Project</button>
                         </div>
                     </div>
                 </form>

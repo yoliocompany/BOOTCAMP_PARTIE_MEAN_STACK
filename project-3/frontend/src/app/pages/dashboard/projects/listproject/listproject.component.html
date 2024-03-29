@@ -1,5 +1,5 @@
-  <!-- start page title -->
-  <div class="row">
+<!-- start page title -->
+<div class="row">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
             <h4 class="mb-0 font-size-18">Projects List</h4>
@@ -31,39 +31,45 @@
                     </thead>
                     <tbody>
 
+                        @for(project of projects; track project._id){
                         <tr>
-                            <td><img src="assets/images/clients/3.png" alt="" class="avatar-sm">
+                            <td><img [src]="'http://127.0.0.1:3000/files/' + project.client.image" alt=""
+                                    class="avatar-sm">
                             </td>
                             <td>
-                                <h5 class="text-truncate font-size-14"><a
-                                        href="javascript: void(0);" class="text-dark"> AAZE AZE
-                                        AZEAZE </a></h5>
-                                <p class="text-muted mb-0"> AZEA AEAZEAZ QDSQSDQ SDAZEAZE QSDQ AZE
-                                </p>
+                                <h5 class="text-truncate font-size-14"><a href="javascript: void(0);" class="text-dark">
+                                        {{ project.name }} </a></h5>
+                                <p class="text-muted mb-0"> {{ project.description.substring(0, 30) }} ... </p>
                             </td>
-                            <td>22/12/2222 </td>
-                            <td> 22/12/2222 </td>
+                            <td>  {{ project.startDate }} </td>
+                            <td> {{ project.endDate }} </td>
                             <td>
-                                <span class="badge bg-warning"> pending </span>
-
-                                
+                                @switch (project.status) {
+                                    @case ('pending') {
+                                        <span class="badge bg-warning"> pending </span>
+                                    }
+                                    @case('completed'){
+                                        <span class="badge bg-success"> completed </span>
+                                    }
+                                    @default {
+                                        <span class="badge bg-danger"> delay </span>
+                                    }
+                                }
                             </td>
                             <td>
                                 <div class="avatar-group">
 
 
-                                    <div class="avatar-group-item">
-                                        <a class="d-inline-block">
-                                            <img src="assets/images/users/avatar-2.jpg" alt=""
-                                                class="rounded-circle avatar-xs">
-                                        </a>
-                                    </div>
-                                    <div class="avatar-group-item">
-                                        <a class="d-inline-block">
-                                            <img src="assets/images/users/avatar-3.jpg" alt=""
-                                                class="rounded-circle avatar-xs">
-                                        </a>
-                                    </div>
+                                    @for(user of project.team; track user._id){
+                                        
+                                        <div class="avatar-group-item">
+                                            <a class="d-inline-block">
+                                                <img [src]="'http://127.0.0.1:3000/files/' + user.image" alt=""
+                                                    class="rounded-circle avatar-xs">
+                                            </a>
+                                        </div>
+                                    }
+                                  
 
 
 
@@ -72,18 +78,21 @@
                             <td>
                                 <ul class="list-inline font-size-20 contact-links mb-0">
                                     <li class="list-inline-item px-2">
-                                        <a  [routerLink]="['/dashboard/projects/preview', 'zaeazeaze']" title="Message"><i class="bx bx-show"></i></a>
+                                        <a [routerLink]="['/dashboard/projects/preview', project._id]"
+                                            title="Message"><i class="bx bx-show"></i></a>
                                     </li>
                                     <li class="list-inline-item px-2">
-                                        <a  [routerLink]="['/dashboard/projects/update', 'zaeazeaze']" title="Message"><i class="bx bx-pencil"></i></a>
+                                        <a [routerLink]="['/dashboard/projects/update', project._id ]" title="Message"><i
+                                                class="bx bx-pencil"></i></a>
                                     </li>
                                     <li class="list-inline-item px-2">
-                                        <a title="Profile"><i class="bx bx-trash"></i></a>
+                                        <a (click)="delete(project._id)" title="Profile"><i class="bx bx-trash"></i></a>
                                     </li>
                                 </ul>
                             </td>
                         </tr>
-                        
+                        }
+
 
                     </tbody>
                 </table>
