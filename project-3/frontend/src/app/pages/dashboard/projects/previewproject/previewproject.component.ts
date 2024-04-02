@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../../../../core/services/project.service';
+import { KanbanComponent } from './kanban/kanban.component';
 
 @Component({
   selector: 'app-previewproject',
   standalone: true,
-  imports: [],
+  imports: [KanbanComponent],
   templateUrl: './previewproject.component.html',
   styleUrl: './previewproject.component.css'
 })

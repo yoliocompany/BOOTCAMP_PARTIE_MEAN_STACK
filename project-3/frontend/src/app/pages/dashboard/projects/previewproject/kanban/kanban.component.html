@@ -1,0 +1,175 @@
+<div class="container">
+
+    <h1 class="text-center mt-4"> KANBAN PROJECT BOARD </h1>
+  
+    <div class="row">
+      <div class="col-3">
+        <input [(ngModel)]="todo.text" type="text" placeholder="todo list" class="form-control">
+      </div>
+      <div class="col-3">
+        <input [(ngModel)]="todo.date" type="date" placeholder="todo list" class="form-control">
+      </div>
+      <div class="col-2">
+        <input [(ngModel)]="todo.budget" type="text" placeholder="task budget" class="form-control">
+      </div>
+      <div class="col-2">
+        <select [(ngModel)]="todo.status" class="form-select">
+          <option value="backlog">Backlog</option>
+          <option value="inprogress">In Progress</option>
+          <option value="completed">Completed</option>
+          <option value="inhold">In Hold</option>
+        </select>
+      </div>
+      <div class="col-2">
+        <button (click)="save()" class="btn btn-primary form-control" >Create</button>
+  
+      </div>
+  
+    </div>
+
+  </div>
+  
+
+
+ <div class="container mt-4">
+    <div class="row" cdkDropListGroup >
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-body" >
+           
+    
+                    <h4 class="card-title mb-4">Backlog</h4>
+                    <div id="task-1">
+                        <div id="upcoming-task" class="pb-1 task-list" cdkDropList [cdkDropListData]="table.backlog" (cdkDropListDropped)="onDrop($event)" >
+                           
+                               @for(todo of table.backlog; track todo.text;let i = $index){
+                                <div class="card task-box" id="uptask-1" cdkDrag [cdkDragData]="todo" >
+                                    <div class="card-body">
+                                   
+                                        <div class="float-end ms-2">
+                                            <span class="badge rounded-pill badge-soft-secondary font-size-12" id="task-status"> {{ todo.status }} </span>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark" id="task-name"> {{todo.text}} </a></h5>
+                                            <p class="text-muted mb-4">{{todo.date}}</p>
+                                        </div>
+                                     
+                                        <div class="text-end">
+                                            <h5 class="font-size-15 mb-1" id="task-budget">$ {{ todo.budget }} </h5>
+                                            <p class="mb-0 text-muted">Budget</p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                               }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-body" >
+           
+    
+                    <h4 class="card-title mb-4">In progress</h4>
+                    <div id="task-1">
+                        <div id="upcoming-task" class="pb-1 task-list" cdkDropList [cdkDropListData]="table.inprogress" (cdkDropListDropped)="onDrop($event)">
+                           
+                            @for(todo of table.inprogress; track todo.text;let i = $index){
+                                <div class="card task-box" id="uptask-1" cdkDrag [cdkDragData]="todo" >
+                                    <div class="card-body">
+                                   
+                                        <div class="float-end ms-2">
+                                            <span class="badge rounded-pill badge-soft-secondary font-size-12" id="task-status"> {{ todo.status }} </span>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark" id="task-name"> {{ todo.text }} </a></h5>
+                                            <p class="text-muted mb-4">{{todo.date}}</p>
+                                        </div>
+                                     
+                                        <div class="text-end">
+                                            <h5 class="font-size-15 mb-1" id="task-budget">$ {{todo.budget}} </h5>
+                                            <p class="mb-0 text-muted">Budget</p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card" >
+                <div class="card-body" >
+           
+    
+                    <h4 class="card-title mb-4">Completed</h4>
+                    <div id="task-1">
+                        <div id="upcoming-task" class="pb-1 task-list" cdkDropList [cdkDropListData]="table.completed" (cdkDropListDropped)="onDrop($event)" >
+                           @for(todo of table.completed; track todo.text;let i = $index){
+                            <div class="card task-box" id="uptask-1" cdkDrag [cdkDragData]="todo" >
+                                <div class="card-body">
+                               
+                                    <div class="float-end ms-2">
+                                        <span class="badge rounded-pill badge-soft-secondary font-size-12" id="task-status"> {{ todo.status }} </span>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark" id="task-name"> {{ todo.text }} </a></h5>
+                                        <p class="text-muted mb-4">{{todo.date}}</p>
+                                    </div>
+                                 
+                                    <div class="text-end">
+                                        <h5 class="font-size-15 mb-1" id="task-budget">$ {{ todo.budget }} </h5>
+                                        <p class="mb-0 text-muted">Budget</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                           }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card" >
+                <div class="card-body" >
+           
+    
+                    <h4 class="card-title mb-4">In hold</h4>
+                    <div id="task-1">
+                        <div id="upcoming-task" class="pb-1 task-list" cdkDropList [cdkDropListData]="table.inhold" (cdkDropListDropped)="onDrop($event)" >
+                           @for(todo of table.inhold; track todo.text; let i = $index){
+                            <div class="card task-box" id="uptask-1" cdkDrag [cdkDragData]="todo" >
+                                <div class="card-body">
+                               
+                                    <div class="float-end ms-2">
+                                        <span class="badge rounded-pill badge-soft-secondary font-size-12" id="task-status"> {{ todo.status }} </span>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark" id="task-name"> {{ todo.text }} </a></h5>
+                                        <p class="text-muted mb-4"> {{ todo.date }} </p>
+                                    </div>
+                                 
+                                    <div class="text-end">
+                                        <h5 class="font-size-15 mb-1" id="task-budget">$ {{ todo.budget }} </h5>
+                                        <p class="mb-0 text-muted">Budget</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                           }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+     
+    </div>
+ </div>
