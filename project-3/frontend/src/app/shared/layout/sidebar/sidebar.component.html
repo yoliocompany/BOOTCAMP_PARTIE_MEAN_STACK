@@ -9,20 +9,24 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" key="t-menu">Menu</li>
 
-                <li>
-                    <a routerLink="/dashboard/statistics" class="waves-effect">
-                        <i class="bx bx-home-circle"></i>
-                        <span key="t-dashboards">Dashboards</span>
-                    </a>
+                @if(user.role == 'admin'){ 
+                    <li>
+                        <a routerLink="/dashboard/statistics" class="waves-effect">
+                            <i class="bx bx-home-circle"></i>
+                            <span key="t-dashboards">Dashboards</span>
+                        </a>
+    
+                    </li>
+                }
 
-                </li>
-
-                <li>
-                    <a routerLink="/dashboard/clients" class="has-arrow waves-effect">
-                        <i class="bx bx-layout"></i>
-                        <span key="t-layouts">Clients management</span>
-                    </a>
-                </li>
+                @if(user.role == 'admin'){
+                    <li>
+                        <a routerLink="/dashboard/clients" class="has-arrow waves-effect">
+                            <i class="bx bx-layout"></i>
+                            <span key="t-layouts">Clients management</span>
+                        </a>
+                    </li>
+                }
 
                 <li>
                     <a routerLink="/dashboard/projects" class="has-arrow waves-effect">
@@ -32,12 +36,14 @@
 
                 </li>
 
+               @if(user.role == 'admin'){
                 <li>
                     <a routerLink="/dashboard/employers" class="has-arrow waves-effect">
                         <i class="bx bxs-user-detail"></i>
                         <span key="t-contacts">Employers</span>
                     </a>
                 </li>
+               }
 
             </ul>
 

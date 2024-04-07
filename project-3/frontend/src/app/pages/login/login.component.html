@@ -28,23 +28,30 @@
                             </a>
                         </div>
                         <div class="p-2">
-                            <form class="form-horizontal">
+                            <form [formGroup]="loginForm" (ngSubmit)="login()"  class="form-horizontal">
 
                                 <div class="mb-3">
                                     <label for="username" class="form-label">E-mail</label>
-                                    <input type="email" placeholder="E-mail" class="form-control m-2">
+                                    <input formControlName="email" type="email" placeholder="E-mail" class="form-control m-2">
+                                    @if(loginForm.controls['email'].touched && loginForm.controls['email'].invalid){
+                                        <p class="text-danger">invalid email</p>
+                                    }
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Password</label>
                                     <div class="input-group auth-pass-inputgroup">
-                                        <input type="password" placeholder="Password" class="form-control m-2">
-
+                                        <input formControlName="password" type="password" placeholder="Password" class="form-control m-2">
+                                        
+                                        
                                     </div>
+                                    @if(loginForm.controls['password'].touched && loginForm.controls['password'].invalid){
+                                        <p class="text-danger">invalid password</p>
+                                    }
                                 </div>
 
                                 <div class="mt-3 d-grid">
-                                    <button class="btn btn-primary waves-effect waves-light" type="submit">Log
+                                    <button [disabled]="loginForm.invalid" class="btn btn-primary waves-effect waves-light" type="submit">Log
                                         In</button>
                                 </div>
 

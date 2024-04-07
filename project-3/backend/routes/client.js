@@ -6,6 +6,7 @@ const router = express.Router();
 const { create, list, byId, deleteClient, update } = require('../controllers/client');
 
 const multer = require('multer');
+const { verifyToken } = require('../config/auth/middleware');
 
 let fileName = '';
 const myStorage = multer.diskStorage({
@@ -18,10 +19,11 @@ const myStorage = multer.diskStorage({
 
 const upload = multer({storage: myStorage});
 
-router.post('/create', upload.single('image') , (req, res)=>{
+router.post('/create', verifyToken ,upload.single('image') , (req, res)=>{
     create(req, res, fileName);
     fileName = '';
 });
+
 router.get('/list', list);
 router.get('/byid/:id', byId);
 router.delete('/delete/:id', deleteClient);

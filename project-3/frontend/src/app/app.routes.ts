@@ -16,18 +16,21 @@ import { UpdateprojectComponent } from './pages/dashboard/projects/updateproject
 import { ListemployersComponent } from './pages/dashboard/employers/listemployers/listemployers.component';
 import { AjoutemployersComponent } from './pages/dashboard/employers/ajoutemployers/ajoutemployers.component';
 import { UpdateemployersComponent } from './pages/dashboard/employers/updateemployers/updateemployers.component';
+import { dashGuard } from './core/guards/dash.guard';
+import { loginGuard } from './core/guards/login.guard';
+import { adminGuard } from './core/guards/admin.guard';
 
 export const routes: Routes = [
 
 
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 
-    { path: 'dashboard', component: DashboardComponent , children: [
+    { path: 'dashboard', canActivate: [ dashGuard ] , component: DashboardComponent , children: [
 
         { path: '', redirectTo: 'statistics', pathMatch: 'full' },
-        { path: 'statistics', component: StatisticsComponent },
+        { path: 'statistics', canActivate: [adminGuard] , component: StatisticsComponent },
 
-        { path: 'clients', component: ClientsComponent , children: [
+        { path: 'clients', canActivate: [ adminGuard ] ,component: ClientsComponent , children: [
             { path: '', redirectTo: 'list', pathMatch: 'full' },
             { path: 'list', component: ListComponent },
             { path: 'ajout', component: AjoutComponent },
@@ -38,13 +41,13 @@ export const routes: Routes = [
 
             { path: '', redirectTo: 'list', pathMatch: 'full' },
             { path: 'list', component: ListprojectComponent },
-            { path: 'ajout', component: AjoutprojectComponent },
+            { path: 'ajout', canActivate: [adminGuard] , component: AjoutprojectComponent },
             { path: 'preview/:id', component: PreviewprojectComponent },
-            { path: 'update/:id', component: UpdateprojectComponent }
+            { path: 'update/:id', canActivate: [adminGuard], component: UpdateprojectComponent }
 
         ] },
 
-        { path: 'employers', component: EmployersComponent, children: [
+        { path: 'employers', canActivate: [ adminGuard ] , component: EmployersComponent, children: [
             { path: '', redirectTo: 'list', pathMatch: 'full' },
             { path: 'list', component: ListemployersComponent },
             { path: 'ajout', component: AjoutemployersComponent },
@@ -54,7 +57,7 @@ export const routes: Routes = [
 
     ] },
 
-    { path: 'login', component: LoginComponent },
+    { path: 'login', canActivate:[ loginGuard ] , component: LoginComponent },
 
     { path: '**', component: NotfoundComponent }
 

@@ -69,13 +69,13 @@ const signIn = async (req, res) => {
 
         const user = await User.findOne({ email: email });
         if(!user){
-           return res.send('email or password invalid');
+           return res.status(401).send('email or password invalid');
         }   
 
         const valid = bcrypt.compareSync( password, user.password );
 
         if(!valid){
-            return res.send('email or password invalid');
+            return res.status(401).send('email or password invalid');
         }
 
         let payload = {
@@ -90,10 +90,10 @@ const signIn = async (req, res) => {
         }
 
         let token = jwt.sign( payload, process.env.SECRET_KEY );
-        res.send({ myToken: token });
+        res.status(200).send({ myToken: token });
 
     } catch (error) {
-        res.send(error)
+        res.status(500).send(error)
     }
 
 }
@@ -103,10 +103,10 @@ const list = async (req, res) => {
     try {
 
         let users = await User.find({ role: 'user' }, { password: 0 });
-        res.send(users);
+        res.status(200).send(users);
 
     } catch (error) {
-        res.send(error)
+        res.status(500).send(error)
     }
 
 }

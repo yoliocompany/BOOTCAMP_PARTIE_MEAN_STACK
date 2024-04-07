@@ -35,9 +35,9 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="assets/images/profile-img.png"
+                    <img class="rounded-circle header-profile-user" [src]="'http://127.0.0.1:3000/files/' + user.image"
                         alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1" key="t-henry"> Admin Admin </span>
+                    <span class="d-none d-xl-inline-block ms-1" key="t-henry"> {{ user.fullname }} </span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
@@ -46,7 +46,7 @@
                             class="bx bx-user font-size-16 align-middle me-1"></i> <span
                             key="t-profile">Profile</span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger"><i
+                    <a (click)="logout()" class="dropdown-item text-danger"><i
                             class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                             key="t-logout">Logout</span></a>
                 </div>

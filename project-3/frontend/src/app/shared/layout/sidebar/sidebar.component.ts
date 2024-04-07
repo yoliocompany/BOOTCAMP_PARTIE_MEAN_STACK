@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthenticationService } from '../../../core/auth/authentication.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,5 +10,14 @@ import { RouterModule } from '@angular/router';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+
+  user: any;
+
+  constructor( private _auth: AuthenticationService ){}
+
+  ngOnInit(): void {
+    this.user = this._auth.getDataFromToken();
+  }
+
 
 }
